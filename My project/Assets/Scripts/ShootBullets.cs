@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerShoot : MonoBehaviour
+public class ShootBullets : MonoBehaviour
 {
     [SerializeField] private GameObject[] shootPoints;
     [SerializeField] private GameObject[] bullets;
