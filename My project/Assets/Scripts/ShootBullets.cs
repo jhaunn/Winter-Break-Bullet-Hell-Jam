@@ -11,6 +11,10 @@ public class ShootBullets : MonoBehaviour
     private float currentShootInterval;
     [SerializeField] private float shootForce;
 
+    private void Start()
+    {
+        currentShootInterval = shootInterval;
+    }
     private void Update()
     {
         currentShootInterval -= Time.deltaTime;
