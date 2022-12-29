@@ -10244,8 +10244,10 @@ MonoBehaviour:
   - {fileID: 1635954109}
   bullets:
   - {fileID: 5825418591855664001, guid: b3dd66a4e3df3c74db90522140007456, type: 3}
+  isPlayer: 1
   shootInterval: 2
-  shootForce: 10
+  shootForce: 6
+  bulletLife: 1
 --- !u!58 &1522875683
 CircleCollider2D:
   m_ObjectHideFlags: 0
