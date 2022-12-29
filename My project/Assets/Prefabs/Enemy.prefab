@@ -478,7 +478,7 @@ GameObject:
   - component: {fileID: 3623060071478844755}
   - component: {fileID: 3623060071478844754}
   - component: {fileID: 3623060071478844752}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -592,7 +592,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &3623060071478844754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -626,5 +626,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c463489a2cc4f2c4c9f55a709291a452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  moveSpeed: 1
+  spinSpeed: 25
   moveInterval: 2.5
+  collisionCheckLayer:
+    serializedVersion: 2
+    m_Bits: 192
+  collisionCheckRadius: 1

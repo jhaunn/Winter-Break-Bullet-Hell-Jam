@@ -6,7 +6,8 @@ public class EnemyMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
 
-    [SerializeField] private float speed;
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float spinSpeed;
     private Vector2 movement;
 
     [SerializeField] private float moveInterval;
@@ -19,10 +20,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void Start()
     {
-        movement.x = Random.Range(-1, 2);
-        movement.y = Random.Range(-1, 2);
-
-        currentMoveInterval = moveInterval;
+        UpdateMovement();
     }
 
     private void Update()
@@ -31,15 +29,29 @@ public class EnemyMovement : MonoBehaviour
 
         if (currentMoveInterval <= 0f)
         {
-            movement.x = Random.Range(-1, 2);
-            movement.y = Random.Range(-1, 2);
-
-            currentMoveInterval = moveInterval;
+            UpdateMovement();
         }
     }
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        transform.Rotate(Vector3.forward * spinSpeed * Time.fixedDeltaTime);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Wall"))
+        {
+            UpdateMovement();
+        }
+    }
+
+    private void UpdateMovement()
+    {
+        movement.x = Random.Range(-1, 2);
+        movement.y = Random.Range(-1, 2);
+
+        currentMoveInterval = moveInterval;
     }
 }
