@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyScriptableObject : ScriptableObject
 {
     [Header("Base Stats")]
-    public Vector4 color;
+    public Color color;
     public int life;
     public int scoreMin;
     public int scoreMax;

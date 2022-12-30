@@ -9,8 +9,8 @@ public class EnemyStats : MonoBehaviour
     private EnemyMovement enemyMovement;
     private EnemyShoot enemyShoot;
 
-    private int life;
-    private int score;
+    public int Life { get; set; }
+    public int Score { get; set; }
 
     private void Awake()
     {
@@ -22,8 +22,8 @@ public class EnemyStats : MonoBehaviour
 
     private void Start()
     {
-        life = enemy.life;
-        score = enemy.GetScore();
+        Life = enemy.life;
+        Score = enemy.GetScore();
 
         enemyMovement.SetSpeed(enemy.moveSpeed, enemy.spinSpeed, enemy.moveInterval);
         enemyShoot.SetShootStats(enemy.shootForce, enemy.shootInterval, enemy.bullets);

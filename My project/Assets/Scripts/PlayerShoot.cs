@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootBullets : MonoBehaviour
+public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] private GameObject[] shootPoints;
     [SerializeField] private GameObject[] bullets;
 
-    [SerializeField] private bool isPlayer;
     [SerializeField] private float shootInterval;
     private float currentShootInterval;
     [SerializeField] private float shootForce;
@@ -29,7 +28,7 @@ public class ShootBullets : MonoBehaviour
             {
                 GameObject bullet = Instantiate(bullets[0], shootPoint.transform.position, shootPoint.transform.rotation);
 
-                bullet.GetComponent<Bullet>().IsFromPlayer(isPlayer);
+                bullet.GetComponent<Bullet>().FromPlayer = true;
                 bullet.GetComponent<Rigidbody2D>().AddForce(shootPoint.transform.up * shootForce, ForceMode2D.Impulse);
                 bullet.GetComponent<Bullet>().DestroyBullet(bulletLife);
             }

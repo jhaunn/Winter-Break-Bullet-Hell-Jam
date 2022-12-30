@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private bool fromPlayer;
-
-    public void IsFromPlayer(bool fromPlayer)
-    {
-        this.fromPlayer = fromPlayer;
-    }
+    public bool FromPlayer { get; set; }
 
     public void DestroyBullet(float value)
     {
@@ -23,14 +18,14 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (fromPlayer)
+        if (FromPlayer)
         {
             if (collision.gameObject.CompareTag("Enemy"))
             {
                 Destroy(collision.gameObject);
                 Destroy(gameObject);
 
-                ScoreManager.instance.Score++;
+                ScoreManager.instance.Score += collision.gameObject.GetComponent<EnemyStats>().Score;
             }
         }
         else
