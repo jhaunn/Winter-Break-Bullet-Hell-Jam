@@ -6,8 +6,8 @@ public class EnemyMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
 
-    [SerializeField] private float moveSpeed;
-    [SerializeField] private float spinSpeed;
+    private float moveSpeed;
+    private float spinSpeed;
     private Vector2 movement;
 
     [SerializeField] private float moveInterval;
@@ -45,6 +45,13 @@ public class EnemyMovement : MonoBehaviour
         {
             UpdateMovement();
         }
+    }
+
+    public void SetSpeed(float moveSpeed, float spinSpeed, float moveInterval)
+    {
+        this.moveSpeed = moveSpeed;
+        this.spinSpeed = spinSpeed;
+        this.moveInterval = moveInterval;
     }
 
     private void UpdateMovement()
