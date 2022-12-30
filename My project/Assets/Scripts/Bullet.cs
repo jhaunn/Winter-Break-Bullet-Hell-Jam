@@ -22,17 +22,15 @@ public class Bullet : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Enemy"))
             {
-                Destroy(collision.gameObject);
+                collision.gameObject.GetComponent<EnemyStats>().Life--;
                 Destroy(gameObject);
-
-                ScoreManager.instance.Score += collision.gameObject.GetComponent<EnemyStats>().Score;
             }
         }
         else
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                Destroy(collision.gameObject);
+                collision.gameObject.GetComponent<PlayerStats>().Health--;
                 Destroy(gameObject);
             }
         }

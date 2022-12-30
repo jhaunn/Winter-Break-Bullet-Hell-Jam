@@ -28,4 +28,13 @@ public class EnemyStats : MonoBehaviour
         enemyMovement.SetSpeed(enemy.moveSpeed, enemy.spinSpeed, enemy.moveInterval);
         enemyShoot.SetShootStats(enemy.shootForce, enemy.shootInterval, enemy.bullets);
     }
+
+    private void Update()
+    {
+        if (Life <= 0)
+        {
+            ScoreManager.instance.Score += Score;
+            Destroy(gameObject);
+        }
+    }
 }

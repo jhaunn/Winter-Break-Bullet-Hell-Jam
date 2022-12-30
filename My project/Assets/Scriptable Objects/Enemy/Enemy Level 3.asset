@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy Level 3
   m_EditorClassIdentifier: 
   color: {r: 0.5849056, g: 0.30072978, b: 0.30072978, a: 1}
-  life: 7
+  life: 4
   scoreMin: 8
   scoreMax: 10
   bullets:

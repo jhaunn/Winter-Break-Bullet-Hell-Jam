@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f3949f35dff17449bef531507303398, type: 3}
-  m_Name: Enemy Level 2
+  m_Name: Enemy Level 1
   m_EditorClassIdentifier: 
-  color: {r: 0.40610537, g: 0.69001484, b: 0.735849, a: 1}
-  life: 4
-  scoreMin: 5
-  scoreMax: 7
+  color: {r: 0.7529412, g: 0.7529412, b: 0.7529412, a: 1}
+  life: 1
+  scoreMin: 3
+  scoreMax: 5
   bullets:
   - {fileID: 5825418591855664001, guid: b3dd66a4e3df3c74db90522140007456, type: 3}
-  shootInterval: 4
-  shootForce: 2.25
-  spinSpeed: 50
-  moveSpeed: 1.25
-  moveInterval: 2.25
+  shootInterval: 5
+  shootForce: 2.5
+  spinSpeed: 25
+  moveSpeed: 1
+  moveInterval: 2.5
