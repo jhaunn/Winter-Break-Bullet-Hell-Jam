@@ -29,6 +29,8 @@ public class Bullet : MonoBehaviour
             {
                 Destroy(collision.gameObject);
                 Destroy(gameObject);
+
+                ScoreManager.instance.UpdateScore(1);
             }
         }
         else
