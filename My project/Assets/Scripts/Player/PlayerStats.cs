@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    [SerializeField] private PlayerUpgradesScriptableObject playerUpgrades;
+    [SerializeField] private PlayerScriptableObject playerUpgrades;
 
     private PlayerMovement playerMovement;
     private PlayerShoot playerShoot;
@@ -18,9 +18,9 @@ public class PlayerStats : MonoBehaviour
 
     private void Start()
     {
-        Health = playerUpgrades.health[0];
+        Health = playerUpgrades.health;
 
-        playerMovement.SetMovement(playerUpgrades.moveSpeed[0]);
-        playerShoot.SetShootStats(playerUpgrades.shootInterval[0], playerUpgrades.shootForce[0], playerUpgrades.bullet);
+        playerMovement.SetMovement(playerUpgrades.moveSpeed);
+        playerShoot.SetShootStats(playerUpgrades.shootInterval, playerUpgrades.shootForce, playerUpgrades.bullet);
     }
 }

@@ -10,21 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 740cb2b2cae7af7408f325ae9f1880c7, type: 3}
-  m_Name: Player Upgrade
+  m_Name: Player
   m_EditorClassIdentifier: 
   bullet: {fileID: 5825418591855664001, guid: b3dd66a4e3df3c74db90522140007456, type: 3}
-  healthRegen: 0
-  health: 020000000300000004000000
-  shootInterval:
-  - 2
-  - 2
-  - 2
-  shootForce:
-  - 6
-  - 10
-  - 15
-  addGuns: 010000000300000005000000
-  moveSpeed:
-  - 3
-  - 5
-  - 7
+  healthRegen: 10
+  health: 3
+  shootInterval: 2
+  shootForce: 10
+  moveSpeed: 4
