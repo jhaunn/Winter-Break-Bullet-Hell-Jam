@@ -2,14 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerStats : MonoBehaviour
 {
-    [SerializeField] private PlayerScriptableObject playerUpgrades;
+    [SerializeField] private PlayerScriptableObject player;
 
     private PlayerMovement playerMovement;
     private PlayerShoot playerShoot;
     public int Health { get; set; }
+    private int initialHealth;
+    [SerializeField] private TextMeshProUGUI healthText;
+    private float currentRegenInterval;
 
     private void Awake()
     {
@@ -19,18 +23,41 @@ public class PlayerStats : MonoBehaviour
 
     private void Start()
     {
-        Health = playerUpgrades.health;
+        Health = player.health;
+        initialHealth = Health;
+        currentRegenInterval = player.healthRegen;
 
-        playerMovement.SetMovement(playerUpgrades.moveSpeed);
-        playerShoot.SetShootStats(playerUpgrades.shootInterval, playerUpgrades.shootForce, playerUpgrades.bullet);
+        playerMovement.SetMovement(player.moveSpeed);
+        playerShoot.SetShootStats(player.shootInterval, player.shootForce, player.bullet);
     }
 
     private void Update()
     {
+        healthText.text = Health.ToString();
+
         if (Health <= 0)
         {
             Destroy(gameObject);
             Invoke("RestartGame", 5f);
+        }
+
+        if (Health < initialHealth)
+        {
+            RegenHealth();
+        }
+
+        
+    }
+
+    private void RegenHealth()
+    {
+        currentRegenInterval -= Time.deltaTime;
+
+        if (currentRegenInterval <= 0f)
+        {
+            Health++;
+
+            currentRegenInterval = player.healthRegen;
         }
     }
 

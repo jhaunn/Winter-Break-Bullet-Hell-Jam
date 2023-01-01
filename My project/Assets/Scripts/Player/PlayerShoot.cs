@@ -26,7 +26,7 @@ public class PlayerShoot : MonoBehaviour
     private void Start()
     {
         currentShootInterval = shootInterval;
-        bulletLife = 1f;
+        bulletLife = 2f;
     }
     private void Update()
     {

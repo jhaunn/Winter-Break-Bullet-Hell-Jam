@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   bullet: {fileID: 5825418591855664001, guid: b3dd66a4e3df3c74db90522140007456, type: 3}
-  healthRegen: 10
+  healthRegen: 3
   health: 3
-  shootInterval: 1.25
-  shootForce: 15
+  shootInterval: 1
+  shootForce: 12.5
   moveSpeed: 4.5
