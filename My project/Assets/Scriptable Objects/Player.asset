@@ -15,6 +15,6 @@ MonoBehaviour:
   bullet: {fileID: 5825418591855664001, guid: b3dd66a4e3df3c74db90522140007456, type: 3}
   healthRegen: 10
   health: 3
-  shootInterval: 2
-  shootForce: 10
-  moveSpeed: 4
+  shootInterval: 1.25
+  shootForce: 15
+  moveSpeed: 4.5

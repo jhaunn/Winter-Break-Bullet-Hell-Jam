@@ -22,6 +22,8 @@ public class Bullet : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Enemy"))
             {
+                Instantiate(EffectsManager.instance.particles[0], transform.position, Quaternion.identity);
+
                 collision.gameObject.GetComponent<EnemyStats>().Life--;
                 Destroy(gameObject);
             }
@@ -30,9 +32,12 @@ public class Bullet : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Player"))
             {
+                Instantiate(EffectsManager.instance.particles[0], transform.position, Quaternion.identity);
+
                 collision.gameObject.GetComponent<PlayerStats>().Health--;
                 Destroy(gameObject);
             }
         }
+
     }
 }
