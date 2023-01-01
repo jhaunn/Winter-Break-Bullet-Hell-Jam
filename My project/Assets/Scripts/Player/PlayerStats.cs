@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using TMPro;
 
 public class PlayerStats : MonoBehaviour
@@ -37,8 +36,8 @@ public class PlayerStats : MonoBehaviour
 
         if (Health <= 0)
         {
+            EffectsManager.instance.InvokeRestartGame(5f);
             Destroy(gameObject);
-            Invoke("RestartGame", 5f);
         }
 
         if (Health < initialHealth)
@@ -59,10 +58,5 @@ public class PlayerStats : MonoBehaviour
 
             currentRegenInterval = player.healthRegen;
         }
-    }
-
-    private void RestartGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
