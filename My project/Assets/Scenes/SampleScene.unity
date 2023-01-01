@@ -2212,8 +2212,8 @@ MonoBehaviour:
   - {fileID: 2733898975470893283, guid: 95bcd4f8b68bc44468b57ddbf77a1151, type: 3}
   minArea: {x: -24.5, y: -24.5}
   maxArea: {x: 24.5, y: 24.5}
-  maxEnemies: 99
-  spawnInterval: 0
+  maxEnemies: 49
+  spawnInterval: 2.5
 --- !u!1 &387797763
 GameObject:
   m_ObjectHideFlags: 0

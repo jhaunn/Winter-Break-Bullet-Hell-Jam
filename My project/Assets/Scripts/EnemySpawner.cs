@@ -4,22 +4,36 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public static EnemySpawner instance;
+
     [SerializeField] private GameObject[] enemies;
 
     [SerializeField] private Vector2 minArea;
     [SerializeField] private Vector2 maxArea;
 
     [SerializeField] private int maxEnemies;
-    private int currentEnemies;
+    [HideInInspector] public int CurrentEnemies { get; set; }
 
     [SerializeField] private float spawnInterval;
     private float currentSpawnInterval;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Start()
     {
         Instantiate(enemies[Random.Range(0, enemies.Length)], new Vector2(Random.Range(minArea.x, maxArea.x), Random.Range(minArea.y, maxArea.y)), Quaternion.identity);
 
-        currentEnemies++;
+        CurrentEnemies++;
         currentSpawnInterval = spawnInterval;
     }
 
@@ -27,11 +41,11 @@ public class EnemySpawner : MonoBehaviour
     {
         currentSpawnInterval -= Time.deltaTime;
 
-        if (currentSpawnInterval <= 0f && currentEnemies < maxEnemies)
+        if (currentSpawnInterval <= 0f && CurrentEnemies < maxEnemies)
         {
             Instantiate(enemies[Random.Range(0, enemies.Length)], new Vector2(Random.Range(minArea.x, maxArea.x), Random.Range(minArea.y, maxArea.y)), Quaternion.identity);
 
-            currentEnemies++;
+            CurrentEnemies++;
             currentSpawnInterval = spawnInterval;
         }
     }

@@ -33,6 +33,7 @@ public class EnemyStats : MonoBehaviour
     {
         if (Life <= 0)
         {
+            EnemySpawner.instance.CurrentEnemies--;
             ScoreManager.instance.Score += Score;
             Destroy(gameObject);
         }
